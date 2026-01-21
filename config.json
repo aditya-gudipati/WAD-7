@@ -1,0 +1,55 @@
+{
+  "name": "Manzil - Destination Alert Travel App",
+  "version": "1.0.0",
+  "description": "A responsive web application for travel destination alerts and ride bookings",
+  "author": "24071A05M4@manzil",
+  "type": "frontend",
+  "technologies": [
+    "HTML5",
+    "CSS3",
+    "JavaScript (Vanilla)",
+    "Font Awesome Icons"
+  ],
+  "deployment": {
+    "staticHost": [
+      "Netlify",
+      "Vercel",
+      "GitHub Pages",
+      "AWS S3",
+      "Azure Static Web Apps"
+    ],
+    "minRequirements": "Any modern web server"
+  },
+  "features": {
+    "authentication": {
+      "signIn": true,
+      "signUp": true,
+      "logout": true
+    },
+    "pages": {
+      "home": true,
+      "profile": true,
+      "trips": true,
+      "bookings": true,
+      "subscriptions": true
+    },
+    "components": {
+      "weatherWidget": true,
+      "bottomNavigation": true,
+      "responsiveDesign": true,
+      "formValidation": true
+    }
+  },
+  "apiIntegrations": {
+    "weather": "TODO: OpenWeatherMap API",
+    "bookingOperators": "TODO: AbhiBus, Goibibo, RedBus APIs",
+    "maps": "TODO: Google Maps or Mapbox API",
+    "geolocation": "TODO: Geolocation API"
+  },
+  "responsiveSizes": {
+    "mobile": "< 480px",
+    "mobileLarge": "480px - 768px",
+    "tablet": "768px - 1024px",
+    "desktop": "> 1024px"
+  }
+}

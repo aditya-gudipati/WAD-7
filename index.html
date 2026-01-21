@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manzil - Destination Alerts for Safe Travel</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Weather Widget -->
+    <div class="weather-widget" id="weatherWidget">
+        <div class="weather-content">
+            <i class="fas fa-cloud-sun"></i>
+            <div class="weather-info">
+                <div class="weather-temp" id="weatherTemp">28°C</div>
+                <div class="weather-condition" id="weatherCondition">Partly Cloudy</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content" id="mainContent">
+        <!-- Home Page -->
+        <div id="home-page" class="page active">
+            <div class="container">
+                <div class="hero-section">
+                    <h1>Welcome to Manzil</h1>
+                    <p>Never miss your stop again. Get advance alerts before reaching your destination.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="showPage('login-page')">Sign In</button>
+                        <button class="btn btn-secondary" onclick="showPage('signup-page')">Sign Up</button>
+                    </div>
+                </div>
+                
+                <div class="features-section">
+                    <div class="feature-card">
+                        <i class="fas fa-bell"></i>
+                        <h3>Smart Alerts</h3>
+                        <p>Get notified before reaching your destination</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-map-location-dot"></i>
+                        <h3>Real-time Tracking</h3>
+                        <p>Monitor your journey in real-time</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Weather Updates</h3>
+                        <p>Check weather conditions during your travel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login-page" class="page">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h2>Sign In to Manzil</h2>
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="loginEmail">Gmail</label>
+                            <input type="email" id="loginEmail" name="email" required placeholder="Enter your Gmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                    </form>
+                    <p class="auth-link">Don't have an account? <a href="#" onclick="showPage('signup-page')">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sign Up Page -->
+        <div id="signup-page" class="page">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h2>Create Account</h2>
+                    <form id="signupForm" onsubmit="handleSignup(event)">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupEmail">Gmail</label>
+                            <input type="email" id="signupEmail" name="email" required placeholder="Enter your Gmail">
+                        </div>
+                        <div class="form-group">
+                            <label for="signupPassword">Password</label>
+                            <input type="password" id="signupPassword" name="password" required placeholder="Enter password">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm password">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" required placeholder="Enter your age">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="transport">Preferred Mode of Transport</label>
+                            <select id="transport" name="transport" required>
+                                <option value="">Select Transport Mode</option>
+                                <option value="bus">Bus</option>
+                                <option value="train">Train</option>
+                                <option value="flight">Flight</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                    </form>
+                    <p class="auth-link">Already have an account? <a href="#" onclick="showPage('login-page')">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profile-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Profile</h1>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar"><i class="fas fa-user-circle"></i></div>
+                            <div class="profile-name">
+                                <h2 id="profileName">John Doe</h2>
+                                <p id="profileEmail">john@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="info-row">
+                                <span class="info-label">Phone:</span>
+                                <span class="info-value" id="profilePhone">+91 9876543210</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Age:</span>
+                                <span class="info-value" id="profileAge">25</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Gender:</span>
+                                <span class="info-value" id="profileGender">Male</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Preferred Transport:</span>
+                                <span class="info-value" id="profileTransport">Bus</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subscription-status">
+                        <h3>Active Subscription</h3>
+                        <div class="subscription-badge" id="subscriptionBadge">Basic Plan</div>
+                        <p class="subscription-text">Upgrade to access more features</p>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="btn btn-secondary" onclick="showPage('subscription-page')">Manage Subscription</button>
+                        <button class="btn btn-outline">Edit Profile</button>
+                        <button class="btn btn-outline">Change Password</button>
+                        <button class="btn btn-danger" onclick="handleLogout()">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trips Page -->
+        <div id="trips-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Trips</h1>
+                </div>
+                
+                <div class="trips-content">
+                    <div class="create-trip-section">
+                        <h2>Plan Your Trip</h2>
+                        <form id="tripForm" onsubmit="handleCreateTrip(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tripFrom">From</label>
+                                    <input type="text" id="tripFrom" required placeholder="Starting location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tripTo">To</label>
+                                    <input type="text" id="tripTo" required placeholder="Destination">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tripDate">Date</label>
+                                    <input type="date" id="tripDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tripTime">Time</label>
+                                    <input type="time" id="tripTime" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="alertTime">Alert Time (minutes before arrival)</label>
+                                    <input type="number" id="alertTime" value="10" min="1" max="120">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tripMode">Mode of Transport</label>
+                                    <select id="tripMode" required>
+                                        <option value="">Select mode</option>
+                                        <option value="bus">Bus</option>
+                                        <option value="train">Train</option>
+                                        <option value="flight">Flight</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Create Trip</button>
+                        </form>
+                    </div>
+
+                    <div class="trips-list-section">
+                        <h2>Your Trips</h2>
+                        <div class="trips-grid" id="tripsGrid">
+                            <!-- Default trips will be loaded here -->
+                        </div>
+                    </div>
+
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <p>Map view with route and traffic (Coming Soon)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Bookings Page -->
+        <div id="bookings-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>My Bookings</h1>
+                </div>
+                
+                <div class="bookings-content">
+                    <div class="booking-filter-section">
+                        <h2>Find & Book Rides</h2>
+                        <form id="bookingForm" onsubmit="handleSearchBookings(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bookFrom">From</label>
+                                    <input type="text" id="bookFrom" required placeholder="Starting location">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookTo">To</label>
+                                    <input type="text" id="bookTo" required placeholder="Destination">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bookDate">Date & Time</label>
+                                    <input type="datetime-local" id="bookDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bookAlertTime">Alert Time (minutes)</label>
+                                    <input type="number" id="bookAlertTime" value="10" min="1" max="120">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bookMode">Transport Mode</label>
+                                    <select id="bookMode" required>
+                                        <option value="">Select mode</option>
+                                        <option value="bus">Bus</option>
+                                        <option value="train">Train</option>
+                                        <option value="flight">Flight</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Search Bookings</button>
+                        </form>
+                    </div>
+
+                    <div class="bookings-results">
+                        <h2>Available Rides</h2>
+                        <div class="bookings-grid" id="bookingsGrid">
+                            <!-- Booking results will be displayed here -->
+                        </div>
+                    </div>
+
+                    <div class="map-placeholder">
+                        <i class="fas fa-map"></i>
+                        <p>Route & Traffic Map (Coming Soon)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscriptions Page -->
+        <div id="subscription-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Subscription Plans</h1>
+                    <p>Choose the perfect plan for your travel needs</p>
+                </div>
+
+                <div class="subscriptions-content">
+                    <div class="subscription-plans">
+                        <!-- Basic Plan -->
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3>Basic</h3>
+                                <div class="plan-price">Free</div>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Access to Trips</li>
+                                <li><i class="fas fa-check"></i> Set travel destinations</li>
+                                <li><i class="fas fa-check"></i> Basic alerts</li>
+                            </ul>
+                            <button class="btn btn-outline" id="basicPlanBtn" onclick="handlePlanSelect('basic')">Current Plan</button>
+                        </div>
+
+                        <!-- Gold Plan -->
+                        <div class="plan-card featured">
+                            <div class="plan-badge">Most Popular</div>
+                            <div class="plan-header">
+                                <h3>Gold</h3>
+                                <div class="plan-price">₹4.99<span>/month</span></div>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Access to Trips</li>
+                                <li><i class="fas fa-check"></i> My Bookings</li>
+                                <li><i class="fas fa-check"></i> Bus & Train alerts</li>
+                                <li><i class="fas fa-check"></i> Priority support</li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="handlePlanSelect('gold')">Upgrade to Gold</button>
+                        </div>
+
+                        <!-- Premium Plan -->
+                        <div class="plan-card">
+                            <div class="plan-header">
+                                <h3>Premium</h3>
+                                <div class="plan-price">₹9.99<span>/month</span></div>
+                            </div>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Access to Trips</li>
+                                <li><i class="fas fa-check"></i> My Bookings</li>
+                                <li><i class="fas fa-check"></i> Bus, Train & Flight alerts</li>
+                                <li><i class="fas fa-check"></i> Advanced weather updates</li>
+                                <li><i class="fas fa-check"></i> 24/7 Premium support</li>
+                            </ul>
+                            <button class="btn btn-primary" onclick="handlePlanSelect('premium')">Upgrade to Premium</button>
+                        </div>
+                    </div>
+
+                    <div class="plan-comparison">
+                        <h2>Feature Comparison</h2>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Basic</th>
+                                    <th>Gold</th>
+                                    <th>Premium</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Trips</td>
+                                    <td><i class="fas fa-check"></i></td>
+                                    <td><i class="fas fa-check"></i></td>
+                                    <td><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>My Bookings</td>
+                                    <td>-</td>
+                                    <td><i class="fas fa-check"></i></td>
+                                    <td><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Bus Alerts</td>
+                                    <td>-</td>
+                                    <td><i class="fas fa-check"></i></td>
+                                    <td><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Train Alerts</td>
+                                    <td>-</td>
+                                    <td><i class="fas fa-check"></i></td>
+                                    <td><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Flight Alerts</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td><i class="fas fa-check"></i></td>
+                                </tr>
+                                <tr>
+                                    <td>Priority Support</td>
+                                    <td>-</td>
+                                    <td><i class="fas fa-check"></i></td>
+                                    <td><i class="fas fa-check"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-navbar">
+        <button class="nav-item" onclick="showPage('profile-page')">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </button>
+        <button class="nav-item" onclick="showPage('trips-page')">
+            <i class="fas fa-route"></i>
+            <span>Trips</span>
+        </button>
+        <button class="nav-item" onclick="showPage('bookings-page')">
+            <i class="fas fa-ticket"></i>
+            <span>Bookings</span>
+        </button>
+        <button class="nav-item" onclick="showPage('subscription-page')">
+            <i class="fas fa-credit-card"></i>
+            <span>Plans</span>
+        </button>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 24071A05M4@manzil</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
