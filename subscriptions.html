@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions - Manzil</title>
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="stylesheet" href="assets/css/subscriptions.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Weather Widget -->
+    <div class="weather-widget" id="weatherWidget">
+        <div class="weather-content">
+            <i class="fas fa-cloud-sun"></i>
+            <div class="weather-info">
+                <div class="weather-temp" id="weatherTemp">28°C</div>
+                <div class="weather-condition" id="weatherCondition">Partly Cloudy</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Subscription Plans</h1>
+                <p>Choose the perfect plan for your travel needs</p>
+            </div>
+
+            <div class="subscriptions-content">
+                <div class="subscription-plans">
+                    <!-- Basic Plan -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Basic</h3>
+                            <div class="plan-price">Free</div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Access to Trips</li>
+                            <li><i class="fas fa-check"></i> Set travel destinations</li>
+                            <li><i class="fas fa-check"></i> Basic alerts</li>
+                        </ul>
+                        <button class="btn btn-outline" id="basicPlanBtn" onclick="handlePlanSelect('basic')">Current Plan</button>
+                    </div>
+
+                    <!-- Gold Plan -->
+                    <div class="plan-card featured">
+                        <div class="plan-badge">Most Popular</div>
+                        <div class="plan-header">
+                            <h3>Gold</h3>
+                            <div class="plan-price">₹4.99<span>/month</span></div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Access to Trips</li>
+                            <li><i class="fas fa-check"></i> My Bookings</li>
+                            <li><i class="fas fa-check"></i> Bus & Train alerts</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="handlePlanSelect('gold')">Upgrade to Gold</button>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Premium</h3>
+                            <div class="plan-price">₹9.99<span>/month</span></div>
+                        </div>
+                        <ul class="plan-features">
+                            <li><i class="fas fa-check"></i> Access to Trips</li>
+                            <li><i class="fas fa-check"></i> My Bookings</li>
+                            <li><i class="fas fa-check"></i> Bus, Train & Flight alerts</li>
+                            <li><i class="fas fa-check"></i> Advanced weather updates</li>
+                            <li><i class="fas fa-check"></i> 24/7 Premium support</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="handlePlanSelect('premium')">Upgrade to Premium</button>
+                    </div>
+                </div>
+
+                <div class="plan-comparison">
+                    <h2>Feature Comparison</h2>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Basic</th>
+                                <th>Gold</th>
+                                <th>Premium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Trips</td>
+                                <td><i class="fas fa-check"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>My Bookings</td>
+                                <td>-</td>
+                                <td><i class="fas fa-check"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Bus Alerts</td>
+                                <td>-</td>
+                                <td><i class="fas fa-check"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Train Alerts</td>
+                                <td>-</td>
+                                <td><i class="fas fa-check"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Flight Alerts</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td><i class="fas fa-check"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Priority Support</td>
+                                <td>-</td>
+                                <td><i class="fas fa-check"></i></td>
+                                <td><i class="fas fa-check"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-navbar">
+        <a href="profile.html" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+        <a href="trips.html" class="nav-item">
+            <i class="fas fa-route"></i>
+            <span>Trips</span>
+        </a>
+        <a href="bookings.html" class="nav-item">
+            <i class="fas fa-ticket"></i>
+            <span>Bookings</span>
+        </a>
+        <a href="subscriptions.html" class="nav-item active">
+            <i class="fas fa-credit-card"></i>
+            <span>Plans</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 24071A05M4@manzil</p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        // Check authentication on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            checkProtectedPage();
+        });
+    </script>
+</body>
+</html>

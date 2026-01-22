@@ -1,0 +1,121 @@
+/* ==================== */
+/* Profile Page Styles */
+/* ==================== */
+
+.profile-content {
+    display: grid;
+    gap: 30px;
+}
+
+.profile-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 30px;
+}
+
+.profile-avatar {
+    font-size: 80px;
+    color: var(--primary-color);
+}
+
+.profile-name h2 {
+    font-size: 28px;
+    color: var(--dark-text);
+    margin-bottom: 5px;
+}
+
+.profile-name p {
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.profile-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.info-row {
+    padding: 15px;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.info-value {
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.subscription-status {
+    background: linear-gradient(135deg, var(--primary-color), #7B68EE);
+    color: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.subscription-status h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.subscription-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.subscription-text {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.profile-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+/* ==================== */
+/* Responsive */
+/* ==================== */
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        padding: 20px;
+    }
+}

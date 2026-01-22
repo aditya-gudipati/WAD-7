@@ -1,0 +1,154 @@
+/* ==================== */
+/* Bookings Page Styles */
+/* ==================== */
+
+.bookings-content {
+    display: grid;
+    gap: 40px;
+}
+
+.booking-filter-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.booking-filter-section h2 {
+    font-size: 22px;
+    color: var(--dark-text);
+    margin-bottom: 25px;
+}
+
+#bookingForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bookings-results {
+    margin-top: 40px;
+}
+
+.bookings-results h2 {
+    font-size: 22px;
+    color: var(--dark-text);
+    margin-bottom: 25px;
+}
+
+.bookings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.booking-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.booking-header {
+    background: linear-gradient(135deg, var(--primary-color), #7B68EE);
+    color: white;
+    padding: 20px;
+}
+
+.booking-operator {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.booking-rating {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.booking-body {
+    padding: 20px;
+}
+
+.booking-route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.booking-time {
+    text-align: center;
+}
+
+.booking-time-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.booking-time-label {
+    font-size: 12px;
+    color: var(--light-text);
+}
+
+.booking-info-grid {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.booking-info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.booking-info-label {
+    color: var(--light-text);
+}
+
+.booking-info-value {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.booking-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.booking-button {
+    width: 100%;
+}
+
+/* ==================== */
+/* Responsive */
+/* ==================== */
+
+@media (max-width: 768px) {
+    .bookings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-route {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-filter-section {
+        padding: 20px;
+    }
+}

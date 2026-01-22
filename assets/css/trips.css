@@ -1,0 +1,108 @@
+/* ==================== */
+/* Trips Page Styles */
+/* ==================== */
+
+.trips-content {
+    display: grid;
+    gap: 40px;
+}
+
+.create-trip-section {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+.create-trip-section h2 {
+    font-size: 22px;
+    color: var(--dark-text);
+    margin-bottom: 25px;
+}
+
+#tripForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.trips-list-section {
+    margin-top: 40px;
+}
+
+.trips-list-section h2 {
+    font-size: 22px;
+    color: var(--dark-text);
+    margin-bottom: 25px;
+}
+
+.trips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.trip-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.trip-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.trip-route {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.trip-location {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.trip-arrow {
+    color: var(--primary-color);
+    font-size: 20px;
+}
+
+.trip-details {
+    display: grid;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--light-text);
+}
+
+.trip-detail-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.trip-detail-item i {
+    color: var(--primary-color);
+    width: 16px;
+}
+
+/* ==================== */
+/* Responsive */
+/* ==================== */
+
+@media (max-width: 768px) {
+    .trips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .create-trip-section {
+        padding: 20px;
+    }
+}

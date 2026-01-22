@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manzil - Destination Alerts for Safe Travel</title>
+    <title>Sign In - Manzil</title>
     <link rel="stylesheet" href="assets/css/global.css">
-    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -23,32 +23,21 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <div class="container">
-            <div class="hero-section">
-                <h1>Welcome to Manzil</h1>
-                <p>Never miss your stop again. Get advance alerts before reaching your destination.</p>
-                <div class="hero-buttons">
-                    <a href="login.html" class="btn btn-primary">Sign In</a>
-                    <a href="signup.html" class="btn btn-secondary">Sign Up</a>
-                </div>
-            </div>
-            
-            <div class="features-section">
-                <div class="feature-card">
-                    <i class="fas fa-bell"></i>
-                    <h3>Smart Alerts</h3>
-                    <p>Get notified before reaching your destination</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-map-location-dot"></i>
-                    <h3>Real-time Tracking</h3>
-                    <p>Monitor your journey in real-time</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3>Weather Updates</h3>
-                    <p>Check weather conditions during your travel</p>
-                </div>
+        <div class="auth-container">
+            <div class="auth-box">
+                <h2>Sign In to Manzil</h2>
+                <form id="loginForm" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="loginEmail">Gmail</label>
+                        <input type="email" id="loginEmail" name="email" required placeholder="Enter your Gmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign In</button>
+                </form>
+                <p class="auth-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
             </div>
         </div>
     </div>

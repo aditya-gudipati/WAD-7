@@ -1,0 +1,65 @@
+/* ==================== */
+/* Authentication Styles (Login/Signup) */
+/* ==================== */
+
+.auth-container {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-box {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 450px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--dark-text);
+    font-size: 28px;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.auth-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* ==================== */
+/* Responsive */
+/* ==================== */
+
+@media (max-width: 768px) {
+    .auth-box {
+        padding: 30px 20px;
+    }
+
+    .auth-box h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 20px;
+    }
+}

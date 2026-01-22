@@ -7,6 +7,26 @@ let trips = [];
 let bookings = [];
 
 // ====================
+// Authentication Helper
+// ====================
+function isAuthenticated() {
+    const savedUser = localStorage.getItem('currentUser');
+    if (savedUser) {
+        currentUser = JSON.parse(savedUser);
+        userSubscription = localStorage.getItem('userSubscription') || 'basic';
+        return true;
+    }
+    return false;
+}
+
+function checkProtectedPage() {
+    if (!isAuthenticated()) {
+        alert('Please sign in to access this page');
+        window.location.href = 'login.html';
+    }
+}
+
+// ====================
 // Page Navigation
 // ====================
 function showPage(pageId) {
@@ -90,6 +110,10 @@ function handleLogin(event) {
 
     userSubscription = 'basic';
     
+    // Save to localStorage
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    localStorage.setItem('userSubscription', userSubscription);
+    
     // Clear form
     document.getElementById('loginForm').reset();
     
@@ -97,7 +121,7 @@ function handleLogin(event) {
     alert('Login successful!');
     
     // Navigate to profile
-    showPage('profile-page');
+    window.location.href = 'profile.html';
 }
 
 function handleSignup(event) {
@@ -140,6 +164,10 @@ function handleSignup(event) {
 
     userSubscription = 'basic';
     
+    // Save to localStorage
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    localStorage.setItem('userSubscription', userSubscription);
+    
     // Clear form
     document.getElementById('signupForm').reset();
     
@@ -147,14 +175,18 @@ function handleSignup(event) {
     alert('Account created successfully!');
     
     // Navigate to profile
-    showPage('profile-page');
+    window.location.href = 'profile.html';
 }
 
 function handleLogout() {
     if (confirm('Are you sure you want to logout?')) {
         currentUser = null;
-        userSubscription = 'basic';
-        trips = [];
+        // Clear localStorage
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('userSubscription');
+        
+        alert('Logged out successfully');
+        window.location.href = 'index.html'
         bookings = [];
         
         alert('Logged out successfully');
