@@ -89,14 +89,13 @@ function updateNavbarActive() {
 function handleLogin(event) {
     event.preventDefault();
     
-    const email = document.getElementById('loginEmail').value;
-    const password = document.getElementById('loginPassword').value;
-
-    // Validate inputs
-    if (!email || !password) {
-        alert('Please fill in all fields');
+    // Validate form inputs first
+    if (!validateLoginForm()) {
         return;
     }
+    
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
 
     // Simulate login (in real app, this would call backend API)
     currentUser = {
@@ -116,6 +115,7 @@ function handleLogin(event) {
     
     // Clear form
     document.getElementById('loginForm').reset();
+    clearAllValidationMessages();
     
     // Show success message
     alert('Login successful!');
@@ -127,32 +127,23 @@ function handleLogin(event) {
 function handleSignup(event) {
     event.preventDefault();
     
-    const fullName = document.getElementById('fullName').value;
-    const email = document.getElementById('signupEmail').value;
+    // Validate form inputs first
+    if (!validateSignupForm()) {
+        return;
+    }
+    
+    const fullName = document.getElementById('fullName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
     const password = document.getElementById('signupPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
-    const phone = document.getElementById('phone').value;
+    const phone = document.getElementById('phone').value.trim();
     const age = document.getElementById('age').value;
     const gender = document.getElementById('gender').value;
     const transport = document.getElementById('transport').value;
 
-    // Validate inputs
-    if (!fullName || !email || !password || !confirmPassword || !phone || !age || !gender || !transport) {
-        alert('Please fill in all fields');
-        return;
-    }
-
-    if (password !== confirmPassword) {
-        alert('Passwords do not match');
-        return;
-    }
-
-    if (password.length < 6) {
-        alert('Password must be at least 6 characters');
-        return;
-    }
-
-    // Simulate signup
+    // All validations passed, save the user
+    addRegisteredUser(email);
+    
+    // Create user object
     currentUser = {
         name: fullName,
         email: email,
@@ -170,6 +161,7 @@ function handleSignup(event) {
     
     // Clear form
     document.getElementById('signupForm').reset();
+    clearAllValidationMessages();
     
     // Show success message
     alert('Account created successfully!');
@@ -473,10 +465,14 @@ function handlePlanSelect(plan) {
 }
 
 // ====================
-// Weather Widget
+// Weather Widget (Now handled by weather.js)
 // ====================
+// Real weather data is now fetched from OpenWeatherMap API via weather.js module
+// The updateWeather() function below is DEPRECATED - use WeatherUI from weather.js instead
+
+/*
 function updateWeather() {
-    // Mock weather data
+    // Mock weather data - DEPRECATED, use weather.js instead
     const weatherData = [
         { temp: '28°C', condition: 'Partly Cloudy' },
         { temp: '32°C', condition: 'Sunny' },
@@ -489,16 +485,15 @@ function updateWeather() {
     document.getElementById('weatherTemp').textContent = randomWeather.temp;
     document.getElementById('weatherCondition').textContent = randomWeather.condition;
 }
+*/
 
 // ====================
 // Initialize App
 // ====================
 function initializeApp() {
-    // Update weather on load
-    updateWeather();
-    
-    // Update weather every 30 seconds
-    setInterval(updateWeather, 30000);
+    // Weather is now initialized by weather.js module
+    // No need to call updateWeather() here
+    console.log('🚀 Initializing Manzil application...');
 
     // Check if user is logged in
     if (!currentUser) {

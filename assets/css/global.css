@@ -1,12 +1,6 @@
 /* ==================== */
-/* Global Styles */
+/* Global Manzil Branding */
 /* ==================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 :root {
     --primary-color: #6C63FF;
@@ -14,38 +8,27 @@
     --success-color: #11A854;
     --warning-color: #FFB01A;
     --danger-color: #E74C3C;
-    --light-bg: #F8F9FA;
-    --dark-text: #2C3E50;
-    --light-text: #7F8C8D;
-    --border-color: #E0E0E0;
-    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-html {
-    scroll-behavior: smooth;
+/* Bootstrap Color Overrides */
+:root {
+    --bs-primary: #6C63FF;
+    --bs-secondary: #F55C5C;
+    --bs-success: #11A854;
+    --bs-warning: #FFB01A;
+    --bs-danger: #E74C3C;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--dark-text);
-    background-color: var(--light-bg);
-    line-height: 1.6;
-}
-
-/* Main Content */
-.main-content {
+    background-color: #F8F9FA;
     padding-bottom: 100px;
-    min-height: 100vh;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
+/* ==================== */
 /* Weather Widget */
+/* ==================== */
+
 .weather-widget {
     position: fixed;
     top: 20px;
@@ -54,7 +37,7 @@ body {
     color: white;
     padding: 15px 20px;
     border-radius: 15px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     z-index: 100;
     max-width: 250px;
 }
@@ -85,127 +68,24 @@ body {
 }
 
 /* ==================== */
-/* Buttons */
-/* ==================== */
-
-.btn {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #5450D0;
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
-}
-
-.btn-secondary {
-    background-color: var(--secondary-color);
-    color: white;
-}
-
-.btn-secondary:hover {
-    background-color: #E74545;
-    transform: translateY(-2px);
-}
-
-.btn-outline {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-outline:hover {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-danger {
-    background-color: var(--danger-color);
-    color: white;
-}
-
-.btn-danger:hover {
-    background-color: #C0392B;
-    transform: translateY(-2px);
-}
-
-.w-100 {
-    width: 100%;
-}
-
-/* ==================== */
-/* Forms */
-/* ==================== */
-
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: var(--dark-text);
-    font-size: 14px;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-/* ==================== */
 /* Page Header */
 /* ==================== */
 
 .page-header {
     text-align: center;
     padding: 40px 0 30px;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid #E0E0E0;
     margin-bottom: 40px;
 }
 
 .page-header h1 {
     font-size: 36px;
-    color: var(--dark-text);
+    color: #2C3E50;
     margin-bottom: 10px;
 }
 
 .page-header p {
-    color: var(--light-text);
+    color: #7F8C8D;
     font-size: 16px;
 }
 
@@ -217,15 +97,70 @@ body {
     background: white;
     padding: 60px;
     border-radius: 15px;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    color: var(--light-text);
+    color: #7F8C8D;
 }
 
 .map-placeholder i {
     font-size: 64px;
     margin-bottom: 20px;
     opacity: 0.5;
+}
+
+/* ==================== */
+/* Bottom Navigation Bar */
+/* ==================== */
+
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 2px solid #E0E0E0;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 15px;
+    color: #7F8C8D;
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--primary-color);
+}
+
+.nav-item i {
+    font-size: 20px;
+}
+
+/* ==================== */
+/* Footer */
+/* ==================== */
+
+.footer {
+    background: white;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #E0E0E0;
+    color: #7F8C8D;
+    font-size: 14px;
+    margin-top: 40px;
 }
 
 /* ==================== */
@@ -239,10 +174,6 @@ body {
         max-width: 200px;
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
     .page-header {
         padding: 30px 0 20px;
     }
@@ -253,13 +184,8 @@ body {
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 15px;
-    }
-
-    .btn {
-        padding: 10px 16px;
-        font-size: 13px;
+    body {
+        padding-bottom: 80px;
     }
 
     .weather-widget {
@@ -267,8 +193,11 @@ body {
         max-width: none;
     }
 
-    .form-group input,
-    .form-group select {
-        padding: 10px 12px;
+    .page-header {
+        padding: 20px 0 15px;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
     }
 }

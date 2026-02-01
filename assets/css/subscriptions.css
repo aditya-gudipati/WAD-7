@@ -101,10 +101,9 @@
     margin-top: 10px;
 }
 
-/* Comparison Table */
+/* Comparison Table - Works with Bootstrap table and table-striped */
 .comparison-table {
     width: 100%;
-    border-collapse: collapse;
     background: white;
     border-radius: 15px;
     overflow: hidden;
@@ -124,12 +123,7 @@
 
 .comparison-table td {
     padding: 20px;
-    border-bottom: 1px solid var(--border-color);
     text-align: left;
-}
-
-.comparison-table tbody tr:last-child td {
-    border-bottom: none;
 }
 
 .comparison-table tbody tr:hover {

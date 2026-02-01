@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trips - Manzil</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/trips.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -35,31 +35,31 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="tripFrom">From</label>
-                                <input type="text" id="tripFrom" required placeholder="Starting location">
+                                <input type="text" id="tripFrom" class="form-control" required placeholder="Starting location">
                             </div>
                             <div class="form-group">
                                 <label for="tripTo">To</label>
-                                <input type="text" id="tripTo" required placeholder="Destination">
+                                <input type="text" id="tripTo" class="form-control" required placeholder="Destination">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="tripDate">Date</label>
-                                <input type="date" id="tripDate" required>
+                                <input type="date" id="tripDate" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="tripTime">Time</label>
-                                <input type="time" id="tripTime" required>
+                                <input type="time" id="tripTime" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="alertTime">Alert Time (minutes before arrival)</label>
-                                <input type="number" id="alertTime" value="10" min="1" max="120">
+                                <input type="number" id="alertTime" class="form-control" value="10" min="1" max="120">
                             </div>
                             <div class="form-group">
                                 <label for="tripMode">Mode of Transport</label>
-                                <select id="tripMode" required>
+                                <select id="tripMode" class="form-select" required>
                                     <option value="">Select mode</option>
                                     <option value="bus">Bus</option>
                                     <option value="train">Train</option>
@@ -113,6 +113,7 @@
     </footer>
 
     <script src="assets/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         // Check authentication on page load
         window.addEventListener('DOMContentLoaded', function() {

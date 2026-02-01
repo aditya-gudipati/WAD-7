@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - Manzil</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/profile.css">
-    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/weather.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -15,8 +16,58 @@
         <div class="weather-content">
             <i class="fas fa-cloud-sun"></i>
             <div class="weather-info">
-                <div class="weather-temp" id="weatherTemp">28°C</div>
-                <div class="weather-condition" id="weatherCondition">Partly Cloudy</div>
+                <div class="weather-temp" id="weatherTemp">Loading...</div>
+                <div class="weather-condition" id="weatherCondition">Fetching weather data</div>
+            </div>
+        </div>
+        <div class="weather-details" id="weatherDetails"></div>
+        
+        <!-- Weather Search -->
+        <div class="weather-search-container" style="margin-top: 15px;">
+            <input 
+                type="text" 
+                id="weatherSearchInput" 
+                class="weather-search-input" 
+                placeholder="Search city (e.g., London, New York)" 
+                style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);"
+            >
+            <button 
+                onclick="handleWeatherSearch()" 
+                class="btn btn-light" 
+                style="padding: 12px 20px; font-size: 14px; font-weight: 600;"
+            >
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Weather Search -->
+    <div class="main-content">
+        <div class="container">
+            <div class="weather-search-container">
+                <input 
+                    type="text" 
+                    class="weather-search-input" 
+                    id="weatherSearchInput" 
+                    placeholder="Search city for weather..." 
+                    value="Delhi"
+                >
+                <button class="weather-search-button" onclick="handleWeatherSearch()">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weather Chart -->
+    <div class="main-content">
+        <div class="container">
+            <div class="weather-chart-container">
+                <div class="chart-header">
+                    <h3 class="chart-title">5-Day Weather Forecast</h3>
+                    <p class="chart-subtitle">Temperature, Feels Like, and Humidity trends</p>
+                </div>
+                <canvas id="weatherChart"></canvas>
             </div>
         </div>
     </div>
@@ -98,7 +149,34 @@
     </footer>
 
     <script src="assets/js/app.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="assets/js/weather.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Handle weather search
+        const handleWeatherSearch = () => {
+            const searchInput = document.getElementById('weatherSearchInput');
+            const city = searchInput.value.trim();
+            
+            if (city) {
+                WeatherUI.searchCity(city)
+                    .catch(error => console.error('Search error:', error));
+            }
+        };
+
+        // Allow search on Enter key
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('weatherSearchInput');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        handleWeatherSearch();
+                    }
+                });
+            }
+        });
+
         // Check authentication on page load
         window.addEventListener('DOMContentLoaded', function() {
             checkProtectedPage();
